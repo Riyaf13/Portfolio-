@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Riya Fulzele — Portfolio</title>
+  <meta name="description" content="Interactive portfolio — Projects, About, Contact. Dark yellow theme." />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header role="banner" class="site-header">
+    <div class="navwrap">
+      <div class="brand">
+        <div class="logo">RF</div>
+        <div>
+          <h1>Riya Fulzele</h1>
+          <div class="muted">Data Science • Web • ML</div>
+        </div>
+      </div>
+      <nav role="navigation" aria-label="Main nav">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="hero">
+      <div class="left">
+        <span class="eyebrow">E-Learning • Portfolio</span>
+        <h2>Hello — I'm <span class="typing">Riya</span>, a Data Science Engineer</h2>
+        <p class="lead">I build data-driven products, ML models and engaging web experiences. I aim to 
+contribute to both personal and organizational growth while continuously developing my expertise in data 
+analytics and related technologies.</p>
+
+        <div class="skills">
+          <div class="skill"><span class="dot"></span><div><strong>Python</strong><div class="small">Pandas, NumPy, ML</div></div></div>
+          <div class="skill"><span class="dot"></span><div><strong>Web</strong><div class="small">HTML, CSS, JS</div></div></div>
+          <div class="skill"><span class="dot"></span><div><strong>Deep Learning</strong><div class="small">CNN, YOLO</div></div></div>
+        </div>
+
+        
+      </div>
+
+      <aside class="profile-panel">
+        <img class="profile-pic" src="assets/profile.jpg" alt="Riya Fulzele">
+        <div class="small muted">Based in India • Open for internships & collaborations</div>
+        <div class="flex" style="margin-top:10px">
+          <button class="btn" id="downloadCv">Download CV</button>
+          <button class="btn" id="contactMe">Contact</button>
+        </div>
+      </aside>
+    </section>
+
+    <section id="projects" class="section">
+      <h3>Projects</h3>
+      <div class="controls-row">
+        <div class="filters" role="tablist" aria-label="Project categories"></div>
+        <input type="search" id="projectSearch" placeholder="Search projects..." class="search">
+      </div>
+      <div class="gallery" id="gallery" aria-live="polite"></div>
+    </section>
+
+    <section id="about" class="section">
+      <h3>About & Education</h3>
+      <div class="timeline">
+        <div class="time-item">
+          <strong>B.Tech — Data Science Engineering</strong>
+          <div class="small muted">GHRIEM (2022 — 2026)</div>
+        </div>
+        <div class="time-item">
+          <strong>Internships</strong>
+          <div class="small muted">Unisoft, MRSAC — ML & web projects.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h3>Contact</h3>
+      <form id="contactForm" class="contact" autocomplete="on">
+        <div>
+          <label for="name">Full name</label>
+          <input id="name" name="name" required />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+        <div>
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" pattern="\d{10,15}" placeholder="10-15 digits"/>
+        </div>
+        <div>
+          <label for="role">Are you hiring?</label>
+          <select id="role" name="role"><option value="no">No</option><option value="yes">Yes</option></select>
+        </div>
+        <div id="companyRow" style="display:none">
+          <label for="company">Company</label>
+          <input id="company" name="company" />
+        </div>
+        <div style="grid-column:1 / -1">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+
+        <div style="grid-column:1 / -1;display:flex;justify-content:space-between;align-items:center">
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <label class="small">Attach resume (pdf) or sample image</label>
+            <input id="file" type="file" accept="application/pdf,image/*" />
+            <div class="file-preview" id="filePreview"></div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+            <div class="small">Autosave status: <span id="autosaveStatus">Not saved</span></div>
+            <div style="display:flex;gap:8px">
+              <button type="button" class="btn" id="clearForm">Clear</button>
+              <button type="submit" class="btn">Send</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <footer>
+      Built with ❤️ 
+    </footer>
+
+    <!-- Lightbox / Modal container -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="lb-inner" role="document">
+        <div class="lb-image" id="lbImage"><img src="" alt="Preview"></div>
+        <div class="lb-controls">
+          <div>
+            <strong id="lbTitle"></strong>
+            <div class="small" id="lbCat"></div>
+          </div>
+          <div class="lb-actions">
+            <button class="btn" id="lbViewCode">View Code</button>
+            <button class="btn" id="lbPrev">Prev</button>
+            <button class="btn" id="lbNext">Next</button>
+            <button class="btn" id="lbClose">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast-wrap" id="toastWrap" aria-live="polite"></div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
